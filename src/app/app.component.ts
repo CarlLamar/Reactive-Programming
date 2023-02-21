@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { of, Observable, map, from } from 'rxjs';
+import { of, Observable, map, from, filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -44,4 +44,21 @@ user$
       age: user.age * 2,
     }))
   )
+
+  //Reaction Programming demo exercise
   .subscribe((user) => console.log(user));
+
+console.log('\n\nEven:');
+numbers$
+  .pipe(filter((numbers) => numbers % 2 == 0))
+  .subscribe((numbers) => console.log(numbers));
+
+console.log('\n\nOdd:');
+numbers$
+  .pipe(filter((numbers) => numbers % 2 != 0))
+  .subscribe((numbers) => console.log(numbers));
+
+console.log('\n\nOdd * 2:');
+numbers$
+  .pipe(filter((numbers) => numbers % 2 == 0))
+  .subscribe((numbers) => console.log(`${numbers} = ${numbers * 2}`));
