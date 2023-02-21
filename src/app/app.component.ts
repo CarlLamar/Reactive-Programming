@@ -45,7 +45,7 @@ user$
     }))
   )
 
-  //Reaction Programming demo exercise
+  //Reaction Programming exercise
   .subscribe((user) => console.log(user));
 
 console.log('\n\nEven:');
